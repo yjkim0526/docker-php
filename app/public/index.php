@@ -1,6 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	
 <h2>Hi Nginx</h2>
-<br>
+<a href="write.php">Write</a>
 <?php echo "php 홈페이지 만들기 ";
+
+
 /* phpinfo(); */
 
 // print_r($_ENV);
@@ -19,4 +30,7 @@ try{
 } catch (PDOException $e) {
 	echo "Connection failed: ". $e->getMessage();
 }
+?>
 
+</body>
+</html>
