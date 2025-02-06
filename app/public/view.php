@@ -1,6 +1,6 @@
 <?php
 
-require 'connect.php';
+require 'inc/connect.php';
 require 'function.php';
 
 // $idx = isset($_GET['idx']) && $_GET['idx'] != '' && is_numeric($_GET['idx']) ? $_GET['idx'] : '';
@@ -75,7 +75,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 				<div class="mb-3 row">
 					<div class="d-flex justify-content-center gap-2">
-						<a href="list.php"><button type="button" class="btn btn-dark" >List</button></a>
+						<a href="index.php"><button type="button" class="btn btn-dark" >List</button></a>
 						<a href="edit.php?idx=<?=$idx?>"><button type="button" class="btn btn-dark" >edit</button></a>
 						<a href="delete.php?idx=<?=$idx?>"><button type="button" class="btn btn-dark" >del</button></a>
 					</div>

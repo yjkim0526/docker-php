@@ -1,7 +1,7 @@
 
 <?php
 
-require 'connect.php';
+require 'inc/connect.php';
 require 'function.php';
 
 $curr_page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page']  : 1;
@@ -47,7 +47,7 @@ if ( $curr_page == 1 ) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .table-responsive-fixed {
-            max-height: 70vh;
+            max-height: 76vh;
             overflow-y: hidden; /* 기본적으로 스크롤바 숨김 */
         }
 
@@ -140,7 +140,6 @@ if ( $curr_page == 1 ) {
 
     </div>
     </div>
-
 
 </main>
 

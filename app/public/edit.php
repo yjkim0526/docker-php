@@ -1,6 +1,6 @@
 <?php
 
-require 'connect.php';
+require 'inc/connect.php';
 require 'function.php';
 
 // $idx = isset($_GET['idx']) && $_GET['idx'] != '' && is_numeric($_GET['idx']) ? $_GET['idx'] : '';
@@ -101,7 +101,7 @@ $stmt->execute($arr);
 
 			<div class="mb-3 row">
 				<div class="d-flex justify-content-center gap-2">
-					<a href="list.php"><button type="button" class="btn btn-dark" >List</button></a>
+					<a href="index.php"><button type="button" class="btn btn-dark" >List</button></a>
 					<button type="submit" class="btn btn-dark" onclick="return confirm('수정 하시겠습니까?');" >edit</button>
 					<a href="delete.php?idx=<?=$row['idx']?>" onclick="return confirm('삭제 하시겠습니까?');"><button type="button" class="btn btn-dark" >del</button></a>
 				</div>

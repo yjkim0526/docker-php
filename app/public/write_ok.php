@@ -1,6 +1,6 @@
 <?php
 
-require 'connect.php';
+require 'inc/connect.php';
 require 'function.php';
 
 $name = getPost('name');
@@ -57,9 +57,9 @@ $rs = $stmt->execute($arr);
 var_dump($rs);
 
 if ($rs){
-  echo '<script>alert("등록 되었습니다");location.href="list.php";</script>';
+  echo '<script>alert("등록 되었습니다");location.href="index.php";</script>';
 } else {
-  echo "db write error ! <a href='list.php'>list</a>";
+  echo "db write error ! <a href='index.php'>list</a>";
 }
 
 ?>
