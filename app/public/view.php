@@ -1,8 +1,10 @@
 <?php
 
 require 'connect.php';
+require 'function.php';
 
-$idx = isset($_GET['idx']) && $_GET['idx'] != '' && is_numeric($_GET['idx']) ? $_GET['idx'] : '';
+// $idx = isset($_GET['idx']) && $_GET['idx'] != '' && is_numeric($_GET['idx']) ? $_GET['idx'] : '';
+$idx = getGet('idx');
 
 if ($idx == '') {
 	exit('No idx');

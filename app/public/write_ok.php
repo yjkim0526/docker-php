@@ -1,8 +1,14 @@
 <?php
 
 require 'connect.php';
+require 'function.php';
 
-print_r($_FILES);
+$name = getPost('name');
+$password = getPost('password');
+$subject = getPost('subject');
+$content = getPost('content');
+
+// print_r($_FILES);
 /*
 Array
 (
@@ -18,40 +24,33 @@ Array
 )
 */
 
+$filename = '';
 if ( isset($_FILES['file']['tmp_name']) 
     && $_FILES['file']['tmp_name'] != '' 
-    && is_uploaded_file($_FILES['file']['tmp_name'] ) ) {
+    && is_uploaded_file($_FILES['file']['tmp_name']) ) {
     
 		$newFileName = makeFileName($_FILES['file']['name']);
     move_uploaded_file($_FILES['file']['tmp_name'], 'data/'.$newFileName);
 
+		// 서버에 올라가는 파일명 | 원본 파일명 
+		$filename = $newFileName . ' | ' . $_FILES['file']['name'];
+		
 }
 
-function makeFileName($file){
-	// $tmpArr = explode('.',$file);  // aaa.bbb.jpg --> ['aaa','bbb','jpg']
- 	// $ext = strtolower(end($tmpArr)); // jpg (소문자-strtolower)
-	// echo $ext;
-
-	// rand(1000, 9999)
-	$newFileName = date('ymdHis') . rand(1000, 9999) . '_' . $file;
-  move_uploaded_file($_FILES['file']['tmp_name'], 'data/'.$newFileName);
-	echo $newFileName;
-	return $newFileName;
-  
-}
 
 print_r($_POST);
 $subject = $_POST['subject'];
 print_r($subject);
 
 $sql = "INSERT INTO step1 
-        SET name=:name, password=:password, subject=:subject, content=:content, rdatetime=NOW()";
+        SET name=:name, password=:password, subject=:subject, content=:content, file=:file, hit=0, rdatetime=NOW()";
 $stmt = $conn->prepare($sql);
 $arr = [
-  ':name' => $_POST['name'],
-  ':password' => $_POST['password'],
-  ':subject' => $_POST['subject'],
-  ':content' => $_POST['content']
+  ':name' => $name,
+  ':password' => $password,
+  ':subject' => $subject,
+  ':content' => $content,
+	':file' => $filename
 ];
 
 $rs = $stmt->execute($arr);
