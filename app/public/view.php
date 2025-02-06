@@ -1,8 +1,12 @@
 <?php
 
 require 'inc/connect.php';
-require 'function.php';
+require 'inc/function.php';
 
+$code = getCode('code');
+$board_title = getBoardName($code);
+
+echo $board_title;
 // $idx = isset($_GET['idx']) && $_GET['idx'] != '' && is_numeric($_GET['idx']) ? $_GET['idx'] : '';
 $idx = getGet('idx');
 
@@ -44,7 +48,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 							<label for="name" class="col-form-label">이름</label>
 						</div>
 						<div class="col-sm-5">
-							<input type="text" class="form-control" id="name" name="name" value="<?=$row['name']?>" readonly>
+							<input type="text" class="form-control" id="name" name="name" maxlength="30" value="<?=$row['name']?>" readonly>
 						</div>
 						<div class="col-sm-1">
 							<!-- <label for="password" class="col-form-label">password</label> -->

@@ -1,4 +1,14 @@
 <?php
+require 'inc/config.php';
+
+function getBoardName($code) {
+	global $boardNameArr;
+	if (!isset($boardNameArr[$code])) {
+    return 'Not Define.';
+  }
+
+	return $boardNameArr[$code];
+}
 
 // # 파일명 만들기 : 날짜및 랜덤숫자 붙여서 파일명 만들기
 function makeFileName($file){
@@ -7,6 +17,10 @@ function makeFileName($file){
 	// rand(1000, 9999)
 	$newFileName = date('ymdHis') . '_' . rand(1000, 9999) . '_' . $file;
 	return $newFileName;
+}
+
+function getCode($var){
+	return ( isset($_GET[$var]) && $_GET[$var] != '' ) ? $_GET[$var] : '';
 }
 
 // # 폼 입력값 체크

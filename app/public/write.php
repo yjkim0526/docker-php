@@ -1,3 +1,14 @@
+<?php
+require 'inc/connect.php';
+require 'inc/function.php';
+
+//$code = getCode('code');
+$code = "free";
+$board_title = getBoardName($code);
+// echo $board_title;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +21,7 @@
 <body>
 	<main>
 	<div class="container px-4 py-5" id="featured-3">
-		<h3 class="pb-2 border-bottom">Write</h3>
+		<h4 class="pb-2 border-bottom"><?=$board_title?> Write</h4>
 
 		<div class="w-auto p-3 border rounded-3 ">
 		<form method="post" enctype="multipart/form-data" action="write_ok.php">
@@ -19,13 +30,13 @@
 						<label for="name" class="col-form-label">Name</label>
 					</div>
 					<div class="col-sm-5">
-						<input type="text" class="form-control" id="name" name="name" required >
+						<input type="text" class="form-control" id="name" name="name" maxlength="30" autocomplete="off" required >
 					</div>
 					<div class="col-sm-1">
 						<label for="password" class="col-form-label">Password</label>
 					</div>
 					<div class="col-sm-5">
-						<input type="password" class="form-control" id="password" name="password" required>
+						<input type="password" class="form-control" id="password" name="password" maxlength="50" required>
 					</div>
 			</div>
 

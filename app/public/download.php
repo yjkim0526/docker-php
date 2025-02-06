@@ -1,6 +1,6 @@
 <?php
-require 'connect.php';
-require 'function.php';
+require 'inc/connect.php';
+require 'inc/function.php';
 
 $idx = getGet('idx');
 if ($idx == ''){

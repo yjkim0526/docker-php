@@ -1,7 +1,7 @@
 <?php
 
 require 'inc/connect.php';
-require 'function.php';
+require 'inc/function.php';
 
 $name = getPost('name');
 $password = getPost('password');

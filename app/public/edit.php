@@ -1,8 +1,11 @@
 <?php
 
 require 'inc/connect.php';
-require 'function.php';
+require 'inc/function.php';
 
+//$code = getCode('code');
+$code = "free";
+$board_title = getBoardName($code);
 // $idx = isset($_GET['idx']) && $_GET['idx'] != '' && is_numeric($_GET['idx']) ? $_GET['idx'] : '';
 $idx = getGet('idx');
 
@@ -50,7 +53,7 @@ $stmt->execute($arr);
 	
 <main>
 	<div class="container px-4 py-5" id="featured-3">
-		<h3 class="pb-2 border-bottom">View</h3>
+		<h4 class="pb-2 border-bottom"><?=$board_title?> View</h4>
 		<div class="w-auto p-3 border rounded-3 ">
 		
 		<form method="post" action="edit_ok.php">

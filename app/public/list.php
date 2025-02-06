@@ -2,7 +2,7 @@
 <?php
 
 require 'inc/connect.php';
-require 'function.php';
+require 'inc/function.php';
 
 $curr_page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page']  : 1;
 // $base_url = $_SERVER['PHP_SELF'];

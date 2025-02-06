@@ -2,7 +2,11 @@
 <?php
 
 require 'inc/connect.php';
-require 'function.php';
+require 'inc/function.php';
+
+//$code = getCode('code');
+$code = "free";
+$board_title = getBoardName($code);
 
 $curr_page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page']  : 1;
 // $base_url = $_SERVER['PHP_SELF'];
@@ -89,7 +93,7 @@ if ( $curr_page == 1 ) {
 </head>
 <body>
 <main class="container py-4">
-    <h3 class="pb-2 border-bottom">List</h3>
+    <h4 class="pb-2 border-bottom"><?=$board_title?> List</h4>
 
     <div class="table-responsive table-responsive-fixed border rounded-3" id="responsiveTable">
         <table class="table table-hover">
