@@ -20,7 +20,7 @@ $rs = $stmt->execute($arr);
 var_dump($rs);
 
 if ($rs){
-	echo "db write success ! <a href='list.php'>list</a>";
+	echo '<script>alert("등록 되었습니다");location.href="list.php";</script>';
 } else {
 	echo "db write error ! <a href='list.php'>list</a>";
 }

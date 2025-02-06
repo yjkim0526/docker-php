@@ -15,7 +15,7 @@ $rs = $stmt->execute($arr);
 // var_dump($rs);
 
 if($rs){
-  echo '<script>alert("삭제 성공");location.href="list.php";</script>';
+  echo '<script>location.href="list.php";</script>';
 	//header('Location: list.php');
 }else{
 	echo '삭제시 에러';

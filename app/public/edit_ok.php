@@ -29,7 +29,7 @@ $rs = $stmt->execute($arr);
 print_r($rs);
 
 if ($rs){
-	echo '<script>alert("수정 되었습니다");location.href="list.php";</script>';
+	echo '<script>location.href="list.php";</script>';
 }
 
 ?>
