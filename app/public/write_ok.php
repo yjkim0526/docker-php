@@ -40,27 +40,27 @@ function makeFileName($file){
   
 }
 
-// print_r($_POST);
-// $subject = $_POST['subject'];
-// print_r($subject);
+print_r($_POST);
+$subject = $_POST['subject'];
+print_r($subject);
 
-// $sql = "INSERT INTO step1 
-//         SET name=:name, password=:password, subject=:subject, content=:content, rdatetime=NOW()";
-// $stmt = $conn->prepare($sql);
-// $arr = [
-//   ':name' => $_POST['name'],
-//   ':password' => $_POST['password'],
-//   ':subject' => $_POST['subject'],
-//   ':content' => $_POST['content']
-// ];
+$sql = "INSERT INTO step1 
+        SET name=:name, password=:password, subject=:subject, content=:content, rdatetime=NOW()";
+$stmt = $conn->prepare($sql);
+$arr = [
+  ':name' => $_POST['name'],
+  ':password' => $_POST['password'],
+  ':subject' => $_POST['subject'],
+  ':content' => $_POST['content']
+];
 
-// $rs = $stmt->execute($arr);
-// var_dump($rs);
+$rs = $stmt->execute($arr);
+var_dump($rs);
 
-// if ($rs){
-//   echo '<script>alert("등록 되었습니다");location.href="list.php";</script>';
-// } else {
-//   echo "db write error ! <a href='list.php'>list</a>";
-// }
+if ($rs){
+  echo '<script>alert("등록 되었습니다");location.href="list.php";</script>';
+} else {
+  echo "db write error ! <a href='list.php'>list</a>";
+}
 
 ?>
