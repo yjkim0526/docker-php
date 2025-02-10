@@ -29,7 +29,7 @@ $rs = $stmt->execute($arr);
 print_r($rs);
 
 if ($rs){
-	echo '<script>location.href="index.php";</script>';
+	echo '<script>location.href="list.php";</script>';
 }
 
 ?>

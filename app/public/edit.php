@@ -1,7 +1,15 @@
 <?php
-
 require 'inc/connect.php';
 require 'inc/function.php';
+
+session_start();
+if (isset($_SESSION['user_id']) && $_SESSION['user_id'] != '' ) {
+	$user_id = $_SESSION['user_id'];
+	$user_name = $_SESSION['user_name'];
+} else {
+	$user_id = '';
+	exit("<script>alert('먼저 로그인을 해주세요.');location.href='login.php';</script>");
+}
 
 //$code = getCode('code');
 $code = "free";
@@ -34,9 +42,16 @@ if ($row['file'] != ''){
 	$file_link = '<a href="download.php?idx='.$row['idx'].'">'.$file_name.'</a>';
 }
 
-$sql = "UPDATE step1 SET hit = hit + 1 WHERE idx=:idx";
-$stmt = $conn->prepare($sql);
-$stmt->execute($arr);
+if ( !isset($_SESSION['last_idx']) || $_SESSION['last_idx'] != $idx ){
+	// setcookie('last_idx',$idx,time()+86400); // 하루동안 같은 idx가 아닐 경우만 조회수 증가
+	$_SESSION['last_idx'] = $idx;
+
+	// hit up
+  $sql = "UPDATE step1 SET hit = hit + 1 WHERE idx=:idx";
+  $stmt = $conn->prepare($sql);
+  $stmt->execute($arr);
+}
+
 
 ?>
 
@@ -51,7 +66,8 @@ $stmt->execute($arr);
 </head>
 <body>
 	
-<main>
+<main class="container">
+	<?php include 'header.php'; ?>
 	<div class="container px-4 py-5" id="featured-3">
 		<h4 class="pb-2 border-bottom"><?=$board_title?> View</h4>
 		<div class="w-auto p-3 border rounded-3 ">
@@ -104,15 +120,16 @@ $stmt->execute($arr);
 
 			<div class="mb-3 row">
 				<div class="d-flex justify-content-center gap-2">
-					<a href="index.php"><button type="button" class="btn btn-dark" >List</button></a>
+					<a href="list.php"><button type="button" class="btn btn-dark" >List</button></a>
 					<button type="submit" class="btn btn-dark" onclick="return confirm('수정 하시겠습니까?');" >edit</button>
 					<a href="delete.php?idx=<?=$row['idx']?>" onclick="return confirm('삭제 하시겠습니까?');"><button type="button" class="btn btn-dark" >del</button></a>
 				</div>
 			</div>
-			
+
 		</form>
 		</div>
   </div>
+	<?php include 'footer.php'; ?>
 </main>
 </body>
 </html>

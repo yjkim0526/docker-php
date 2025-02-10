@@ -3,12 +3,13 @@
 require 'inc/connect.php';
 require 'inc/function.php';
 
+$code = getPost('code');
 $name = getPost('name');
 $password = getPost('password');
 $subject = getPost('subject');
 $content = getPost('content');
 
-// print_r($_FILES);
+print_r($code);
 /*
 Array
 (
@@ -37,15 +38,15 @@ if ( isset($_FILES['file']['tmp_name'])
 		
 }
 
-
 print_r($_POST);
 $subject = $_POST['subject'];
 print_r($subject);
 
 $sql = "INSERT INTO step1 
-        SET name=:name, password=:password, subject=:subject, content=:content, file=:file, hit=0, rdatetime=NOW()";
+        SET code=:code, name=:name, password=:password, subject=:subject, content=:content, file=:file, hit=0, rdatetime=NOW()";
 $stmt = $conn->prepare($sql);
 $arr = [
+	':code' => $code,
   ':name' => $name,
   ':password' => $password,
   ':subject' => $subject,

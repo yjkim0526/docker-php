@@ -2,6 +2,15 @@
 require 'inc/connect.php';
 require 'inc/function.php';
 
+session_start();
+if (isset($_SESSION['user_id']) && $_SESSION['user_id'] != '' ) {
+	$user_id = $_SESSION['user_id'];
+	$user_name = $_SESSION['user_name'];
+} else {
+	$user_id = '';
+	exit("<script>alert('먼저 로그인을 해주세요.');location.href='login.php';</script>");
+}
+
 //$code = getCode('code');
 $code = "free";
 $board_title = getBoardName($code);
@@ -19,12 +28,14 @@ $board_title = getBoardName($code);
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-	<main>
+	<main class="container">
+	<?php include 'header.php'; ?>
 	<div class="container px-4 py-5" id="featured-3">
 		<h4 class="pb-2 border-bottom"><?=$board_title?> Write</h4>
 
 		<div class="w-auto p-3 border rounded-3 ">
 		<form method="post" enctype="multipart/form-data" action="write_ok.php">
+			<input type="hidden" name='code' value="free">
 			<div class="mt-3 mb-3 row">
 					<div class="col-sm-1">
 						<label for="name" class="col-form-label">Name</label>
@@ -77,6 +88,7 @@ $board_title = getBoardName($code);
 		</form>
 		</div>
   </div>
+	<?php include 'footer.php'; ?>
 	</main>
 
 </body>

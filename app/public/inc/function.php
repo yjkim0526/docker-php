@@ -4,9 +4,8 @@ require 'inc/config.php';
 function getBoardName($code) {
 	global $boardNameArr;
 	if (!isset($boardNameArr[$code])) {
-    return 'Not Define.';
+    return '';
   }
-
 	return $boardNameArr[$code];
 }
 
@@ -35,15 +34,13 @@ function getGet($var){
 
 
 // # 게시판 페이징 처리
-function paginate($total_items, $items_per_page = 10, $current_page = 1, $url = '?page=') {
+function paginate($total_items, $items_per_page, $current_page, $url) {
 	$total_pages = ceil($total_items / $items_per_page);
-	// print_r($total_pages);
-
 	$pagination = '<nav aria-label="Page navigation example"><ul class="pagination justify-content-center">';
 
 	// 이전 페이지 링크
 	if ($current_page > 1) {
-			$pagination .= '<li class="page-item"><a class="page-link" href="' . $url . ($current_page - 1) . '">이전</a></li>';
+			$pagination .= '<li class="page-item"><a class="page-link" href="' . $url."&page=" . ($current_page - 1) . '">이전</a></li>';
 	} else {
 			$pagination .= '<li class="page-item disabled"><span class="page-link">이전</span></li>';
 	}
@@ -51,15 +48,15 @@ function paginate($total_items, $items_per_page = 10, $current_page = 1, $url = 
 	// 페이지 번호 링크
 	for ($i = 1; $i <= $total_pages; $i++) {
 			if ($i == $current_page) {
-					$pagination .= '<li class="page-item active"><span class="page-link">' . $i . '</span></li>';
+					$pagination .= '<li class="page-item active"><span class="page-link bg-black">' . $i . '</span></li>';
 			} else {
-					$pagination .= '<li class="page-item"><a class="page-link" href="' . $url . $i . '">' . $i . '</a></li>';
+					$pagination .= '<li class="page-item"><a class="page-link " href="' . $url."&page=". $i . '">' . $i . '</a></li>';
 			}
 	}
 
 	// 다음 페이지 링크
 	if ($current_page < $total_pages) {
-			$pagination .= '<li class="page-item"><a class="page-link" href="' . $url . ($current_page + 1) . '">다음</a></li>';
+			$pagination .= '<li class="page-item"><a class="page-link" href="' . $url."&page=". ($current_page + 1) . '">다음</a></li>';
 	} else {
 			$pagination .= '<li class="page-item disabled"><span class="page-link">다음</span></li>';
 	}

@@ -32,8 +32,8 @@ $rs = $stmt->execute($arr);
 // var_dump($rs);
 
 if($rs){
-  echo '<script>location.href="index.php";</script>';
-	//header('Location: index.php');
+  echo '<script>location.href="list.php";</script>';
+	//header('Location: list.php');
 }else{
 	echo '삭제시 에러';
   exit;
