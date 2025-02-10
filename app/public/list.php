@@ -120,7 +120,7 @@ if ( $curr_page == 1 ) {
 <main class="container ">
 	<?php include 'header.php'; ?>
 
-	<form name="frmiMain" >
+	<form name="frmiMain" class="p-4" >
 		<div class="d-flex justify-content-between align-items-center mt-5 mb-2">
 			<div >
 				<a href="write.php" class="btn btn-dark">글작성</a>

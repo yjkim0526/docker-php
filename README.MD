@@ -1,8 +1,12 @@
 # 개발환경
 
-도커 컨테이너, Nginx
+docker compose, Nginx, Mysql, PHP
 
-# php, mysql
+> > docker compose down
+> > docker compose ps
+> > docker compose up -d
 
-글등록, 수정, 삭제 (비회원)
-파일첨부, 수정 삭제시 비번 확인, 페이징 처리
+# 기능능
+
+글등록, 수정, 삭제
+파일첨부, 페이징 처리, 로그인
