@@ -29,12 +29,21 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_id'] != '' ) {
 		<div class="px-4 py-5 my-5 text-center">
 			<h1 class="display-5 fw-bold pb-3">PHP 로그인 & 게시판</h1>
 			<div class="col-lg-6 mx-auto ">
-				<p class="lead pb-4 fw-semibold">Docker Compose + Nginx + Mysql + Php Board</p>
+				<p class="lead pb-4 fw-semibold">Docker Compose + Nginx + Mysql + Php + bootstrap</p>
 				<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
 					<a href="list.php" class="btn btn-dark btn-lg px-4 gap-3">게시판 보기</a>
-					<button type="button" class="btn btn-outline-secondary btn-lg px-4">Login Test</button>
+					<a href="login.php"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Login Test</button></a>					
 				</div>
 			</div>
+		</div>
+		<div class="px-2 text-center">
+			<img
+				src="/img/main_img.jpg"
+				alt="main_img"
+				class="rounded-2"
+				width="70%"
+				height="400"
+			/>
 		</div>
 		<div class="b-example-divider"></div>
 	</div>

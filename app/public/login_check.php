@@ -22,7 +22,7 @@
 
 	//var_dump($row);
 	if ($row['user_name'] == ''){
-		echo "<script>alert('Invalid username or password')</script>";
+		echo "<script>alert('ID 또는 비밀밀번호가 일치하지 않습니다')</script>";
 		exit("<script>location.replace('login.php');</script>");
     //exit("<script>alert('ID 또는 비밀밀번호가 일치하지 않습니다');location.href='login.php?code=".$code.";</script>");
 	}

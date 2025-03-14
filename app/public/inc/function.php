@@ -48,7 +48,7 @@ function paginate($total_items, $items_per_page, $current_page, $url) {
 	// 페이지 번호 링크
 	for ($i = 1; $i <= $total_pages; $i++) {
 			if ($i == $current_page) {
-					$pagination .= '<li class="page-item active"><span class="page-link bg-black">' . $i . '</span></li>';
+					$pagination .= '<li class="page-item active"><span class="page-link ">' . $i . '</span></li>';
 			} else {
 					$pagination .= '<li class="page-item"><a class="page-link " href="' . $url."&page=". $i . '">' . $i . '</a></li>';
 			}

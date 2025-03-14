@@ -2,14 +2,20 @@
 require 'inc/connect.php';
 require 'inc/function.php';
 
+
+
 session_start();
 if (isset($_SESSION['user_id']) && $_SESSION['user_id'] != '' ) {
 	$user_id = $_SESSION['user_id'];
 	$user_name = $_SESSION['user_name'];
 } else {
-	$user_id = '';
-	exit("<script>alert('먼저 로그인을 해주세요.');location.href='login.php';</script>");
+	//$user_id = '';
+	//exit("<script>alert('먼저 로그인을 해주세요.');location.href='login.php';</script>");
 }
+// 임시로 test 아이디로 로그인 skip
+$user_id = "test";
+$user_name = "행복";
+
 
 $code = "free";
 $search_sel = getGet('search_sel');

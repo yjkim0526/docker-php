@@ -53,6 +53,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_id'] != '' ) {
         <button class="w-100 btn btn-lg btn-dark">
           로그인
         </button>
+				<div class="form-floating mt-2">로그인 테스트 : test / test1234</div>
       </form>
 
     </main>
